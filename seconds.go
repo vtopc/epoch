@@ -29,18 +29,18 @@ func NewSeconds(t time.Time) Seconds {
 }
 
 // MarshalJSON - implements JSON marshaling interface
-func (t Seconds) MarshalJSON() ([]byte, error) {
-	return json.Marshal(t.Time.Unix())
+func (s Seconds) MarshalJSON() ([]byte, error) {
+	return json.Marshal(s.Time.Unix())
 }
 
 // UnmarshalJSON - implements JSON unmarshaling interface
-func (t *Seconds) UnmarshalJSON(data []byte) error {
+func (s *Seconds) UnmarshalJSON(data []byte) error {
 	ts, err := strconv.ParseInt(string(data), 10, 64)
 	if err != nil {
 		return errors.Wrap(err, "failed to parse int")
 	}
 
-	t.Time = time.Unix(ts, 0)
+	s.Time = time.Unix(ts, 0)
 
 	return nil
 }
