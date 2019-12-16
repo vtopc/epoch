@@ -6,6 +6,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -33,14 +34,24 @@ func TestSeconds_Unmarshal(t *testing.T) {
 					Time: Seconds{time.Unix(ts, 0)},
 				},
 			},
+			"not_int": {
+				v:       `{"time":"text"}`,
+				wantErr: errors.New("failed to parse int: strconv.ParseInt: parsing \"\\\"text\\\"\": invalid syntax"),
+			},
 		}
 
 		for name, tc := range tests {
 			t.Run(name, func(t *testing.T) {
 				var got testValueStruct
 				err := json.Unmarshal([]byte(tc.v), &got)
-				require.NoError(t, err)
-				assert.Equal(t, tc.want, got)
+				if tc.wantErr == nil {
+					require.NoError(t, err)
+					assert.Equal(t, tc.want, got)
+
+					return
+				}
+
+				require.EqualError(t, err, tc.wantErr.Error())
 			})
 		}
 	})
@@ -55,6 +66,12 @@ func TestSeconds_Unmarshal(t *testing.T) {
 				v: fmt.Sprintf(`{"time":%d}`, ts),
 				want: testPointerStruct{
 					Time: &Seconds{Time: time.Unix(ts, 0)},
+				},
+			},
+			"nil": {
+				v: `{"time":null}`,
+				want: testPointerStruct{
+					Time: nil,
 				},
 			},
 		}

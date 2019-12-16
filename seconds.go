@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"strconv"
 	"time"
+
+	"github.com/pkg/errors"
 )
 
 // Seconds - seconds since the Epoch(Unix time).
@@ -22,7 +24,7 @@ func (t Seconds) MarshalJSON() ([]byte, error) {
 func (t *Seconds) UnmarshalJSON(data []byte) error {
 	ts, err := strconv.ParseInt(string(data), 10, 64)
 	if err != nil {
-		return err
+		return errors.Wrap(err, "failed to parse int")
 	}
 
 	t.Time = time.Unix(ts, 0)
