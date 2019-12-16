@@ -19,7 +19,12 @@ type testPointerStruct struct {
 	Time *Seconds `json:"time"`
 }
 
-const ts = int64(1136239445)
+const timestamp = int64(1136239445)
+
+func TestNewSeconds(t *testing.T) {
+	got := NewSeconds(time.Unix(timestamp, 0))
+	assert.NotEqual(t, Seconds{}, got)
+}
 
 func TestSeconds_Unmarshal(t *testing.T) {
 	t.Run("value", func(t *testing.T) {
@@ -29,9 +34,9 @@ func TestSeconds_Unmarshal(t *testing.T) {
 			wantErr error
 		}{
 			"positive": {
-				v: fmt.Sprintf(`{"time":%d}`, ts),
+				v: fmt.Sprintf(`{"time":%d}`, timestamp),
 				want: testValueStruct{
-					Time: Seconds{time.Unix(ts, 0)},
+					Time: Seconds{time.Unix(timestamp, 0)},
 				},
 			},
 			"not_int": {
@@ -63,9 +68,9 @@ func TestSeconds_Unmarshal(t *testing.T) {
 			wantErr error
 		}{
 			"positive": {
-				v: fmt.Sprintf(`{"time":%d}`, ts),
+				v: fmt.Sprintf(`{"time":%d}`, timestamp),
 				want: testPointerStruct{
-					Time: &Seconds{Time: time.Unix(ts, 0)},
+					Time: &Seconds{Time: time.Unix(timestamp, 0)},
 				},
 			},
 			"nil": {
@@ -96,9 +101,9 @@ func TestSeconds_Marshal(t *testing.T) {
 		}{
 			"positive": {
 				v: testValueStruct{
-					Time: Seconds{Time: time.Unix(ts, 0)},
+					Time: Seconds{Time: time.Unix(timestamp, 0)},
 				},
-				want: fmt.Sprintf(`{"time":%d}`, ts),
+				want: fmt.Sprintf(`{"time":%d}`, timestamp),
 			},
 		}
 
@@ -119,9 +124,9 @@ func TestSeconds_Marshal(t *testing.T) {
 		}{
 			"positive": {
 				v: testPointerStruct{
-					Time: &Seconds{Time: time.Unix(ts, 0)},
+					Time: &Seconds{Time: time.Unix(timestamp, 0)},
 				},
-				want: fmt.Sprintf(`{"time":%d}`, ts),
+				want: fmt.Sprintf(`{"time":%d}`, timestamp),
 			},
 			"nil": {
 				v: testPointerStruct{

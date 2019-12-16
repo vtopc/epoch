@@ -23,6 +23,11 @@ type Seconds struct {
 	time.Time
 }
 
+// NewSeconds - returns Seconds
+func NewSeconds(t time.Time) Seconds {
+	return Seconds{Time: t}
+}
+
 // MarshalJSON - implements JSON marshaling interface
 func (t Seconds) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.Time.Unix())
