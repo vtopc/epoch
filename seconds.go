@@ -16,7 +16,7 @@ import (
 //   {"time":1136239445}
 // could be unmarshaled into next:
 //   struct {
-//     Time epoch.Seconds `json:"time"`
+//     Timestamp epoch.Seconds `json:"timestamp"`
 //   }
 // and vice versa.
 type Seconds struct {
