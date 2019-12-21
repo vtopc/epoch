@@ -36,7 +36,7 @@ func TestSeconds_Unmarshal(t *testing.T) {
 			"positive": {
 				v: fmt.Sprintf(`{"timestamp":%d}`, ts),
 				want: testSecondsValueStruct{
-					Timestamp: Seconds{time.Unix(ts, 0)},
+					Timestamp: Seconds{Time: time.Unix(ts, 0)},
 				},
 			},
 			"not_int": {
