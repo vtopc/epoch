@@ -19,9 +19,9 @@ type testMillisecondsPointerStruct struct {
 	Timestamp *Milliseconds `json:"timestamp"`
 }
 
-const tms = int64(1136239445000123)
+const tms = int64(1136239445999)
 
-var tmsTime = time.Unix(1136239445, 123*nsPerMs)
+var tmsTime = time.Unix(1136239445, 999*nsPerMs)
 
 func TestNewMilliseconds(t *testing.T) {
 	const ns = 123 * nsPerMs
@@ -51,7 +51,7 @@ func TestMilliseconds_Unmarshal(t *testing.T) {
 			},
 			"not_int": {
 				v:       `{"timestamp":"text"}`,
-				wantErr: errors.New("failed to parse int: strconv.ParseInt: parsing \"\\\"text\\\"\": invalid syntax"),
+				wantErr: errors.New("failed to parse Milliseconds: strconv.ParseInt: parsing \"\\\"text\\\"\": invalid syntax"),
 			},
 		}
 
