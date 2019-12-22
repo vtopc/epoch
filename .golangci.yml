@@ -7,7 +7,6 @@ linters:
     - goconst
     - goimports
     - bodyclose
-    - gochecknoglobals
     - prealloc
     - scopelint
     - maligned
@@ -15,4 +14,4 @@ linters:
     - gocyclo
     - unparam
     - depguard
-#   - go-critic
+    - gocritic

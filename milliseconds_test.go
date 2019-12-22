@@ -56,6 +56,7 @@ func TestMilliseconds_Unmarshal(t *testing.T) {
 		}
 
 		for name, tc := range tests {
+			tc := tc
 			t.Run(name, func(t *testing.T) {
 				var got testMillisecondsValueStruct
 				err := json.Unmarshal([]byte(tc.v), &got)
@@ -92,6 +93,7 @@ func TestMilliseconds_Unmarshal(t *testing.T) {
 		}
 
 		for name, tc := range tests {
+			tc := tc
 			t.Run(name, func(t *testing.T) {
 				var got testMillisecondsPointerStruct
 				err := json.Unmarshal([]byte(tc.v), &got)
@@ -118,6 +120,7 @@ func TestMilliseconds_Marshal(t *testing.T) {
 		}
 
 		for name, tc := range tests {
+			tc := tc
 			t.Run(name, func(t *testing.T) {
 				got, err := json.Marshal(tc.v)
 				require.NoError(t, err)
@@ -147,6 +150,7 @@ func TestMilliseconds_Marshal(t *testing.T) {
 		}
 
 		for name, tc := range tests {
+			tc := tc
 			t.Run(name, func(t *testing.T) {
 				got, err := json.Marshal(tc.v)
 				require.NoError(t, err)
