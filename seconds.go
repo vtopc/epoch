@@ -11,14 +11,6 @@ import (
 // Seconds - seconds since the Epoch(Unix time).
 // Inherits built-in time.Time type, thus has all it methods, but has custom serializer and
 // deserializer(converts integer into built-in time.Time and vice versa).
-//
-// Examples: next JSON:
-//   {"time":1136239445}
-// could be unmarshaled into next:
-//   struct {
-//     Timestamp epoch.Seconds `json:"timestamp"`
-//   }
-// and vice versa.
 type Seconds struct {
 	time.Time
 }
