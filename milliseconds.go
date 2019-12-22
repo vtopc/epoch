@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"strconv"
 	"time"
+
+	"github.com/pkg/errors"
 )
 
 // Milliseconds - same as epoch.Seconds, but for Epoch(Unix time) in milliseconds.
@@ -30,7 +32,7 @@ func (m Milliseconds) MarshalJSON() ([]byte, error) {
 func (m *Milliseconds) UnmarshalJSON(data []byte) error {
 	ms, err := strconv.ParseInt(string(data), 10, 64)
 	if err != nil {
-		return err
+		return errors.Wrap(err, "failed to parse Milliseconds")
 	}
 
 	s := ms / msPerS
