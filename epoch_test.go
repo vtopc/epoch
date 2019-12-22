@@ -18,9 +18,6 @@ func ExampleSeconds() {
 		panic(err)
 	}
 
-	// fmt.Printf("%+v\n", v)
-	// Will print something like: {Timestamp:2006-01-03 00:04:05 +0200 EET}
-
 	// Also as epoch.Seconds inherits all time.Time's methods:
 	fmt.Println(v.Timestamp.Year())
 	fmt.Println(v.Timestamp.UTC().String())
