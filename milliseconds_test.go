@@ -102,7 +102,7 @@ func TestMilliseconds_Unmarshal(t *testing.T) {
 	})
 }
 
-func TestMs_Marshal(t *testing.T) {
+func TestMilliseconds_Marshal(t *testing.T) {
 	t.Run("value", func(t *testing.T) {
 		tests := map[string]struct {
 			v       testMillisecondsValueStruct
