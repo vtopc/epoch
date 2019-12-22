@@ -16,7 +16,7 @@ import (
 //   {"time":1136239445}
 // could be unmarshaled into next:
 //   struct {
-//     Time epoch.Seconds `json:"time"`
+//     Timestamp epoch.Seconds `json:"timestamp"`
 //   }
 // and vice versa.
 type Seconds struct {
@@ -37,7 +37,7 @@ func (s Seconds) MarshalJSON() ([]byte, error) {
 func (s *Seconds) UnmarshalJSON(data []byte) error {
 	ts, err := strconv.ParseInt(string(data), 10, 64)
 	if err != nil {
-		return errors.Wrap(err, "failed to parse int")
+		return errors.Wrap(err, "failed to parse Seconds")
 	}
 
 	s.Time = time.Unix(ts, 0)

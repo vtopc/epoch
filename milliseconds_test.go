@@ -11,44 +11,54 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-type testSecondsValueStruct struct {
-	Timestamp Seconds `json:"timestamp"`
+type testMillisecondsValueStruct struct {
+	Timestamp Milliseconds `json:"timestamp"`
 }
 
-type testSecondsPointerStruct struct {
-	Timestamp *Seconds `json:"timestamp"`
+type testMillisecondsPointerStruct struct {
+	Timestamp *Milliseconds `json:"timestamp"`
 }
 
-const ts = int64(1136239445)
+const tms = int64(1136239445999)
 
-func TestNewSeconds(t *testing.T) {
-	got := NewSeconds(time.Unix(ts, 0))
-	assert.NotEqual(t, Seconds{}, got)
+var tmsTime = time.Unix(1136239445, 999*nsPerMs)
+
+func TestNewMilliseconds(t *testing.T) {
+	const ns = 123 * nsPerMs
+	t.Run("seconds", func(t *testing.T) {
+		got := NewMilliseconds(time.Unix(tms/msPerS, ns))
+		assert.Equal(t, got.Unix(), tms/msPerS)
+	})
+
+	t.Run("nanoseconds", func(t *testing.T) {
+		got := NewMilliseconds(time.Unix(0, ns))
+		assert.Equal(t, got.UnixNano(), ns)
+	})
 }
 
-func TestSeconds_Unmarshal(t *testing.T) {
+func TestMilliseconds_Unmarshal(t *testing.T) {
 	t.Run("value", func(t *testing.T) {
 		tests := map[string]struct {
 			v       string
-			want    testSecondsValueStruct
+			want    testMillisecondsValueStruct
 			wantErr error
 		}{
 			"positive": {
-				v: fmt.Sprintf(`{"timestamp":%d}`, ts),
-				want: testSecondsValueStruct{
-					Timestamp: Seconds{Time: time.Unix(ts, 0)},
+				v: fmt.Sprintf(`{"timestamp":%d}`, tms),
+				want: testMillisecondsValueStruct{
+					Timestamp: Milliseconds{Time: tmsTime},
 				},
 			},
 			"not_int": {
 				v:       `{"timestamp":"text"}`,
-				wantErr: errors.New("failed to parse Seconds: strconv.ParseInt: parsing \"\\\"text\\\"\": invalid syntax"),
+				wantErr: errors.New("failed to parse Milliseconds: strconv.ParseInt: parsing \"\\\"text\\\"\": invalid syntax"),
 			},
 		}
 
 		for name, tc := range tests {
 			tc := tc
 			t.Run(name, func(t *testing.T) {
-				var got testSecondsValueStruct
+				var got testMillisecondsValueStruct
 				err := json.Unmarshal([]byte(tc.v), &got)
 				if tc.wantErr == nil {
 					require.NoError(t, err)
@@ -65,18 +75,18 @@ func TestSeconds_Unmarshal(t *testing.T) {
 	t.Run("pointer", func(t *testing.T) {
 		tests := map[string]struct {
 			v       string
-			want    testSecondsPointerStruct
+			want    testMillisecondsPointerStruct
 			wantErr error
 		}{
 			"positive": {
-				v: fmt.Sprintf(`{"timestamp":%d}`, ts),
-				want: testSecondsPointerStruct{
-					Timestamp: &Seconds{Time: time.Unix(ts, 0)},
+				v: fmt.Sprintf(`{"timestamp":%d}`, tms),
+				want: testMillisecondsPointerStruct{
+					Timestamp: &Milliseconds{Time: tmsTime},
 				},
 			},
 			"nil": {
 				v: `{"timestamp":null}`,
-				want: testSecondsPointerStruct{
+				want: testMillisecondsPointerStruct{
 					Timestamp: nil,
 				},
 			},
@@ -85,7 +95,7 @@ func TestSeconds_Unmarshal(t *testing.T) {
 		for name, tc := range tests {
 			tc := tc
 			t.Run(name, func(t *testing.T) {
-				var got testSecondsPointerStruct
+				var got testMillisecondsPointerStruct
 				err := json.Unmarshal([]byte(tc.v), &got)
 				require.NoError(t, err)
 				assert.Equal(t, tc.want, got)
@@ -94,18 +104,18 @@ func TestSeconds_Unmarshal(t *testing.T) {
 	})
 }
 
-func TestSeconds_Marshal(t *testing.T) {
+func TestMilliseconds_Marshal(t *testing.T) {
 	t.Run("value", func(t *testing.T) {
 		tests := map[string]struct {
-			v       testSecondsValueStruct
+			v       testMillisecondsValueStruct
 			want    string
 			wantErr error
 		}{
 			"positive": {
-				v: testSecondsValueStruct{
-					Timestamp: Seconds{Time: time.Unix(ts, 0)},
+				v: testMillisecondsValueStruct{
+					Timestamp: Milliseconds{Time: tmsTime},
 				},
-				want: fmt.Sprintf(`{"timestamp":%d}`, ts),
+				want: fmt.Sprintf(`{"timestamp":%d}`, tms),
 			},
 		}
 
@@ -121,18 +131,18 @@ func TestSeconds_Marshal(t *testing.T) {
 
 	t.Run("pointer", func(t *testing.T) {
 		tests := map[string]struct {
-			v       testSecondsPointerStruct
+			v       testMillisecondsPointerStruct
 			want    string
 			wantErr error
 		}{
 			"positive": {
-				v: testSecondsPointerStruct{
-					Timestamp: &Seconds{Time: time.Unix(ts, 0)},
+				v: testMillisecondsPointerStruct{
+					Timestamp: &Milliseconds{Time: tmsTime},
 				},
-				want: fmt.Sprintf(`{"timestamp":%d}`, ts),
+				want: fmt.Sprintf(`{"timestamp":%d}`, tms),
 			},
 			"nil": {
-				v: testSecondsPointerStruct{
+				v: testMillisecondsPointerStruct{
 					Timestamp: nil,
 				},
 				want: `{"timestamp":null}`,
