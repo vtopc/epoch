@@ -27,7 +27,7 @@ func (s Seconds) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON - implements JSON unmarshaling interface
 func (s *Seconds) UnmarshalJSON(data []byte) error {
-	ts, err := strconv.ParseInt(string(data), 10, 64)
+	ts, err := parseInt64(string(data))
 	if err != nil {
 		return errors.Wrap(err, "failed to parse Seconds")
 	}
@@ -35,4 +35,8 @@ func (s *Seconds) UnmarshalJSON(data []byte) error {
 	s.Time = time.Unix(ts, 0)
 
 	return nil
+}
+
+func parseInt64(s string) (int64, error) {
+	return strconv.ParseInt(s, 10, 64)
 }
