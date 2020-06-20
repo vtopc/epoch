@@ -46,6 +46,17 @@ func main() {
 ## Milliseconds
 Same as epoch.Seconds, but for Epoch(Unix time) in milliseconds.
 
+## StrSeconds
+Same as epoch.Seconds, but for strings, e.g.:
+```json
+  {"timestamp":"1136239445"}
+```
+
+## StrMilliseconds
+Same as epoch.Milliseconds, but for strings, e.g.:
+```json
+  {"timestamp":"1136239445999"}
+```
 
 [godoc]: https://godoc.org/github.com/vtopc/epoch
 [godoc-img]: https://godoc.org/github.com/vtopc/epoch?status.svg
