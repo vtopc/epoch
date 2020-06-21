@@ -29,12 +29,12 @@ func (m *StrMilliseconds) UnmarshalJSON(data []byte) error {
 	var v string
 	err := json.Unmarshal(data, &v)
 	if err != nil {
-		return errors.Wrap(err, "failed to unmarshal StrMilliseconds")
+		return errors.Wrap(err, "failed to unmarshal epoch.StrMilliseconds")
 	}
 
 	ms, err := parseInt64(v)
 	if err != nil {
-		return errors.Wrap(err, "failed to parse StrMilliseconds")
+		return errors.Wrap(err, "failed to parse epoch.StrMilliseconds")
 	}
 
 	m.Time = msToTime(ms)

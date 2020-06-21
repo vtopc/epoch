@@ -47,7 +47,7 @@ func TestStrMilliseconds_Unmarshal(t *testing.T) {
 			},
 			"not_int": {
 				j:       `{"timestamp":"text"}`,
-				wantErr: errors.New(`failed to parse StrMilliseconds: strconv.ParseInt: parsing "text": invalid syntax`),
+				wantErr: errors.New(`failed to parse epoch.StrMilliseconds: strconv.ParseInt: parsing "text": invalid syntax`),
 			},
 		}
 

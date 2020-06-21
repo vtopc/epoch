@@ -26,7 +26,7 @@ func (m Milliseconds) MarshalJSON() ([]byte, error) {
 func (m *Milliseconds) UnmarshalJSON(data []byte) error {
 	ms, err := parseInt64(string(data))
 	if err != nil {
-		return errors.Wrap(err, "failed to parse Milliseconds")
+		return errors.Wrap(err, "failed to parse epoch.Milliseconds")
 	}
 
 	m.Time = msToTime(ms)
