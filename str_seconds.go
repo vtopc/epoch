@@ -8,7 +8,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-// StrSeconds - seconds since the Epoch(Unix time).
+// StrSeconds - seconds since the Epoch(Unix time) as string.
 // Inherits built-in time.Time type, thus has all it methods, but has custom serializer and
 // deserializer(converts integer into built-in time.Time and vice versa).
 type StrSeconds struct {
