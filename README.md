@@ -1,6 +1,6 @@
 # epoch
 
-[![Godoc Reference][godoc-img]][godoc]
+[![Godoc Reference][godoc-img]][godoc] [![Unit tests][unit-tests-img]][unit-tests]
 
 Contains primitives for marshaling/unmarshaling Unix timestamp/epoch to/from build-in time.Time type in JSON.
 
@@ -66,3 +66,6 @@ Same as epoch.Milliseconds, but for strings, e.g.:
 
 [godoc]: https://godoc.org/github.com/vtopc/epoch
 [godoc-img]: https://godoc.org/github.com/vtopc/epoch?status.svg
+
+[unit-tests]: https://github.com/vtopc/epoch/actions?query=workflow%3A%22Unit+tests%22
+[unit-tests-img]: https://github.com/vtopc/epoch/workflows/Unit%20tests/badge.svg
