@@ -31,7 +31,7 @@ jobs:
           # working-directory: somedir
 
           # Optional: golangci-lint command line arguments.
-          args: |
+          args: >
             --tests=false
             -E bodyclose -E golint -E rowserrcheck -E gosec -E interfacer
             -E unconvert -E dupl -E goconst -E gocognit -E goimports -E maligned -E unparam
