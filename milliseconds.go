@@ -2,7 +2,6 @@ package epoch
 
 import (
 	"encoding/json"
-	"strconv"
 	"time"
 
 	"github.com/pkg/errors"
@@ -25,7 +24,7 @@ func (m Milliseconds) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON - implements JSON unmarshaling interface
 func (m *Milliseconds) UnmarshalJSON(data []byte) error {
-	ms, err := strconv.ParseInt(string(data), 10, 64)
+	ms, err := parseInt64(string(data))
 	if err != nil {
 		return errors.Wrap(err, "failed to parse Milliseconds")
 	}

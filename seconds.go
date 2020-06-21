@@ -2,7 +2,6 @@ package epoch
 
 import (
 	"encoding/json"
-	"strconv"
 	"time"
 
 	"github.com/pkg/errors"
@@ -35,8 +34,4 @@ func (s *Seconds) UnmarshalJSON(data []byte) error {
 	s.Time = time.Unix(ts, 0)
 
 	return nil
-}
-
-func parseInt64(s string) (int64, error) {
-	return strconv.ParseInt(s, 10, 64)
 }
