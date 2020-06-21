@@ -1,3 +1,3 @@
-// Package epoch contains primitives for unmarshaling Unix time(int64) JSON's fields into build-in
-// time.Time type.
+// Package epoch primitives for marshaling/unmarshaling Unix timestamp/epoch to/from build-in
+// time.Time type in JSON.
 package epoch
