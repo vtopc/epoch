@@ -2,7 +2,6 @@ package epoch
 
 import (
 	"encoding/json"
-	"strconv"
 	"time"
 
 	"github.com/pkg/errors"
@@ -12,11 +11,6 @@ import (
 type Milliseconds struct {
 	time.Time
 }
-
-const (
-	msPerS  = int64(time.Second / time.Millisecond)
-	nsPerMs = int64(time.Millisecond)
-)
 
 // NewMilliseconds - returns Milliseconds
 func NewMilliseconds(t time.Time) Milliseconds {
@@ -30,15 +24,24 @@ func (m Milliseconds) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON - implements JSON unmarshaling interface
 func (m *Milliseconds) UnmarshalJSON(data []byte) error {
-	ms, err := strconv.ParseInt(string(data), 10, 64)
+	ms, err := parseInt64(string(data))
 	if err != nil {
-		return errors.Wrap(err, "failed to parse Milliseconds")
+		return errors.Wrap(err, "failed to parse epoch.Milliseconds")
 	}
 
+	m.Time = msToTime(ms)
+
+	return nil
+}
+
+const (
+	msPerS  = int64(time.Second / time.Millisecond)
+	nsPerMs = int64(time.Millisecond)
+)
+
+func msToTime(ms int64) time.Time {
 	s := ms / msPerS
 	ns := (ms % msPerS) * nsPerMs
 
-	m.Time = time.Unix(s, ns)
-
-	return nil
+	return time.Unix(s, ns)
 }

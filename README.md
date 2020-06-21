@@ -5,11 +5,14 @@
 Contains primitives for marshaling/unmarshaling Unix timestamp/epoch to/from build-in time.Time type in JSON.
 
 ## Seconds
-Seconds since the Epoch(Unix time).
+Seconds since the Epoch(Unix time), e.g.:
+```json
+  {"timestamp":1136239445}
+```
 Inherits built-in time.Time type, thus has all it methods, but has custom serializer and
 deserializer(converts integer into built-in time.Time and vice versa).
 
-### Example
+#### Usage Example
 
 ```go
 package main
@@ -44,8 +47,22 @@ func main() {
 ```
 
 ## Milliseconds
-Same as epoch.Seconds, but for Epoch(Unix time) in milliseconds.
+Same as epoch.Seconds, but for Epoch(Unix time) in milliseconds, e.g.:
+```json
+  {"timestamp":1136239445999}
+```
 
+## StrSeconds
+Same as epoch.Seconds, but for strings, e.g.:
+```json
+  {"timestamp":"1136239445"}
+```
+
+## StrMilliseconds
+Same as epoch.Milliseconds, but for strings, e.g.:
+```json
+  {"timestamp":"1136239445999"}
+```
 
 [godoc]: https://godoc.org/github.com/vtopc/epoch
 [godoc-img]: https://godoc.org/github.com/vtopc/epoch?status.svg
