@@ -3,6 +3,7 @@ package epoch_test
 import (
 	"encoding/json"
 	"fmt"
+
 	"github.com/vtopc/epoch"
 )
 
