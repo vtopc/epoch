@@ -13,11 +13,6 @@ type Milliseconds struct {
 	time.Time
 }
 
-const (
-	msPerS  = int64(time.Second / time.Millisecond)
-	nsPerMs = int64(time.Millisecond)
-)
-
 // NewMilliseconds - returns Milliseconds
 func NewMilliseconds(t time.Time) Milliseconds {
 	return Milliseconds{Time: t}
@@ -35,10 +30,19 @@ func (m *Milliseconds) UnmarshalJSON(data []byte) error {
 		return errors.Wrap(err, "failed to parse Milliseconds")
 	}
 
+	m.Time = msToTime(ms)
+
+	return nil
+}
+
+const (
+	msPerS  = int64(time.Second / time.Millisecond)
+	nsPerMs = int64(time.Millisecond)
+)
+
+func msToTime(ms int64) time.Time {
 	s := ms / msPerS
 	ns := (ms % msPerS) * nsPerMs
 
-	m.Time = time.Unix(s, ns)
-
-	return nil
+	return time.Unix(s, ns)
 }
