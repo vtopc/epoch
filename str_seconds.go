@@ -2,7 +2,6 @@ package epoch
 
 import (
 	"encoding/json"
-	"strconv"
 	"time"
 
 	"github.com/pkg/errors"
@@ -22,7 +21,7 @@ func NewStrSeconds(t time.Time) StrSeconds {
 
 // MarshalJSON - implements JSON marshaling interface
 func (s StrSeconds) MarshalJSON() ([]byte, error) {
-	return json.Marshal(strconv.FormatInt(s.Time.Unix(), 10))
+	return json.Marshal(s.Time.Unix())
 }
 
 // UnmarshalJSON - implements JSON unmarshaling interface
