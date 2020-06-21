@@ -32,7 +32,7 @@ jobs:
 
           # Optional: golangci-lint command line arguments.
           # args: --issues-exit-code=0
-          args: --tests=false
+          args: --tests=false -E golint -E gosec -E unconvert -E goconst -E gocyclo -E goimports
 
           # Optional: show only new issues if it's a pull request. The default value is `false`.
           # only-new-issues: true
