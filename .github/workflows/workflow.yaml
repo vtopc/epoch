@@ -31,8 +31,11 @@ jobs:
           # working-directory: somedir
 
           # Optional: golangci-lint command line arguments.
-          # args: --issues-exit-code=0
-          args: --tests=false -E golint -E gosec -E unconvert -E goconst -E gocyclo -E goimports
+          args: |
+            --tests=false
+            -E bodyclose -E golint -E rowserrcheck -E gosec -E interfacer
+            -E unconvert -E dupl -E goconst -E gocognit -E goimports -E maligned -E unparam
+            -E dogsled -E prealloc -E gocritic -E wsl -E goprintffuncname -E gomnd -E exportloopref
 
           # Optional: show only new issues if it's a pull request. The default value is `false`.
           # only-new-issues: true
