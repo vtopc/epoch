@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: test
+      - name: Test
         uses: cedrickring/golang-action/go1.14@1.5.2
         with:
           args: make test
