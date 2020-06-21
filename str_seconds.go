@@ -28,6 +28,7 @@ func (s StrSeconds) MarshalJSON() ([]byte, error) {
 // UnmarshalJSON - implements JSON unmarshaling interface
 func (s *StrSeconds) UnmarshalJSON(data []byte) error {
 	var v string
+
 	err := json.Unmarshal(data, &v)
 	if err != nil {
 		return errors.Wrap(err, "failed to unmarshal epoch.StrSeconds")
