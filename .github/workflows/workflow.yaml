@@ -20,7 +20,6 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           file: ./coverage.txt
-          #flags: unittests
           fail_ci_if_error: true
 
   lint:
