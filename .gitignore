@@ -4,8 +4,6 @@
 
 .DS_Store
 
-vendor/
-
 # Binaries for programs and plugins
 *.exe
 *.exe~
@@ -20,4 +18,6 @@ vendor/
 *.out
 
 # Dependency directories (remove the comment below to include it)
-# vendor/
+vendor/
+
+/coverage.txt
