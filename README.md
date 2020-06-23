@@ -68,7 +68,7 @@ Same as epoch.Milliseconds, but for strings, e.g.:
 [godoc-url]: https://godoc.org/github.com/vtopc/epoch
 
 [build-img]: https://github.com/vtopc/epoch/workflows/build/badge.svg
-[build-url]: https://github.com/vtopc/epoch/actions?query=workflow%3A%22Build%22
+[build-url]: https://github.com/vtopc/epoch/actions?query=workflow%3A%22build%22
 
 [codecov-img]: https://codecov.io/gh/vtopc/epoch/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/vtopc/epoch
