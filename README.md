@@ -1,6 +1,6 @@
 # epoch
 
-[![Godoc Reference][godoc-img]][godoc] [![Build][build-img]][build]
+[![Godoc Reference][godoc-img]][godoc-url] [![build][build-img]][build-url] [![codecov][codecov-img]][codecov-url]
 
 Contains primitives for marshaling/unmarshaling Unix timestamp/epoch to/from build-in time.Time type in JSON.
 
@@ -64,8 +64,11 @@ Same as epoch.Milliseconds, but for strings, e.g.:
   {"timestamp":"1136239445999"}
 ```
 
-[godoc]: https://godoc.org/github.com/vtopc/epoch
 [godoc-img]: https://godoc.org/github.com/vtopc/epoch?status.svg
+[godoc-url]: https://godoc.org/github.com/vtopc/epoch
 
-[build]: https://github.com/vtopc/epoch/actions?query=workflow%3A%22Build%22
-[build-img]: https://github.com/vtopc/epoch/workflows/Build/badge.svg
+[build-img]: https://github.com/vtopc/epoch/workflows/build/badge.svg
+[build-url]: https://github.com/vtopc/epoch/actions?query=workflow%3A%22Build%22
+
+[codecov-img]: https://codecov.io/gh/vtopc/epoch/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/vtopc/epoch
