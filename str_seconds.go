@@ -15,7 +15,7 @@ type StrSeconds struct {
 	time.Time
 }
 
-// StrSeconds - returns StrSeconds
+// NewStrSeconds - returns StrSeconds
 func NewStrSeconds(t time.Time) StrSeconds {
 	return StrSeconds{Time: t}
 }
