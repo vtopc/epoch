@@ -1,6 +1,7 @@
 # epoch
 
-[![Godoc Reference][godoc-img]][godoc-url] [![build][build-img]][build-url] [![codecov][codecov-img]][codecov-url]
+[![Godoc Reference][godoc-img]][godoc-url] [![build][build-img]][build-url] 
+[![codecov][codecov-img]][codecov-url] [![goreportcard][goreportcard-img]][goreportcard-url]
 
 Contains primitives for marshaling/unmarshaling Unix timestamp/epoch to/from build-in time.Time type in JSON.
 
@@ -72,3 +73,6 @@ Same as epoch.Milliseconds, but for strings, e.g.:
 
 [codecov-img]: https://codecov.io/gh/vtopc/epoch/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/vtopc/epoch
+
+[goreportcard-img]: https://goreportcard.com/badge/github.com/vtopc/epoch
+[goreportcard-url]: https://goreportcard.com/report/github.com/vtopc/epoch
