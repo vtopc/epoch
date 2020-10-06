@@ -13,7 +13,7 @@ type StrMilliseconds struct {
 	time.Time
 }
 
-// NewMilliseconds - returns Milliseconds
+// NewStrMilliseconds - returns Milliseconds
 func NewStrMilliseconds(t time.Time) StrMilliseconds {
 	return StrMilliseconds{Time: t}
 }
