@@ -1,5 +1,6 @@
 # epoch
 
+[![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)
 [![Godoc Reference][godoc-img]][godoc-url] [![build][build-img]][build-url] 
 [![codecov][codecov-img]][codecov-url] [![goreportcard][goreportcard-img]][goreportcard-url]
 
