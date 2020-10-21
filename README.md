@@ -4,7 +4,7 @@
 [![Godoc Reference][godoc-img]][godoc-url] [![build][build-img]][build-url] 
 [![codecov][codecov-img]][codecov-url] [![goreportcard][goreportcard-img]][goreportcard-url]
 
-Contains primitives for marshaling/unmarshaling Unix timestamp/epoch to/from build-in time.Time type in JSON.
+Contains primitives for marshaling/unmarshaling Unix timestamp/epoch to/from built-in time.Time type in JSON.
 
 ## Seconds
 Seconds since the Epoch(Unix time), e.g.:
