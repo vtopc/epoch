@@ -2,9 +2,8 @@ package epoch
 
 import (
 	"encoding/json"
+	"fmt"
 	"time"
-
-	"github.com/pkg/errors"
 )
 
 // Seconds - seconds since the Epoch(Unix time).
@@ -28,7 +27,7 @@ func (s Seconds) MarshalJSON() ([]byte, error) {
 func (s *Seconds) UnmarshalJSON(data []byte) error {
 	ts, err := parseInt64(string(data))
 	if err != nil {
-		return errors.Wrap(err, "failed to parse epoch.Seconds")
+		return fmt.Errorf("failed to parse epoch.Seconds: %w", err)
 	}
 
 	s.Time = time.Unix(ts, 0)

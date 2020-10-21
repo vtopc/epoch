@@ -2,10 +2,9 @@ package epoch
 
 import (
 	"encoding/json"
+	"fmt"
 	"strconv"
 	"time"
-
-	"github.com/pkg/errors"
 )
 
 // StrMilliseconds - same as epoch.Milliseconds, but for strings.
@@ -30,12 +29,12 @@ func (m *StrMilliseconds) UnmarshalJSON(data []byte) error {
 
 	err := json.Unmarshal(data, &v)
 	if err != nil {
-		return errors.Wrap(err, "failed to unmarshal epoch.StrMilliseconds")
+		return fmt.Errorf("failed to unmarshal epoch.StrMilliseconds: %w", err)
 	}
 
 	ms, err := parseInt64(v)
 	if err != nil {
-		return errors.Wrap(err, "failed to parse epoch.StrMilliseconds")
+		return fmt.Errorf("failed to parse epoch.StrMilliseconds: %w", err)
 	}
 
 	m.Time = msToTime(ms)

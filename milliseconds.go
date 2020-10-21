@@ -2,9 +2,8 @@ package epoch
 
 import (
 	"encoding/json"
+	"fmt"
 	"time"
-
-	"github.com/pkg/errors"
 )
 
 // Milliseconds - same as epoch.Seconds, but for Epoch(Unix time) in milliseconds.
@@ -26,7 +25,7 @@ func (m Milliseconds) MarshalJSON() ([]byte, error) {
 func (m *Milliseconds) UnmarshalJSON(data []byte) error {
 	ms, err := parseInt64(string(data))
 	if err != nil {
-		return errors.Wrap(err, "failed to parse epoch.Milliseconds")
+		return fmt.Errorf("failed to parse epoch.Milliseconds: %w", err)
 	}
 
 	m.Time = msToTime(ms)
