@@ -18,6 +18,7 @@ func NewMilliseconds(t time.Time) Milliseconds {
 
 // MarshalJSON - implements JSON marshaling interface
 func (m Milliseconds) MarshalJSON() ([]byte, error) {
+	// TODO: switch to https://pkg.go.dev/time#Time.UnixMilli
 	return json.Marshal(m.Time.UnixNano() / nsPerMs)
 }
 
@@ -28,6 +29,7 @@ func (m *Milliseconds) UnmarshalJSON(data []byte) error {
 		return fmt.Errorf("failed to parse epoch.Milliseconds: %w", err)
 	}
 
+	// TODO: switch to https://pkg.go.dev/time#UnixMilli
 	m.Time = msToTime(ms)
 
 	return nil
