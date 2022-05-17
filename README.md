@@ -5,7 +5,6 @@
 [![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)
 [![Godoc Reference][godoc-img]][godoc-url] [![build][build-img]][build-url] 
 [![codecov][codecov-img]][codecov-url] [![goreportcard][goreportcard-img]][goreportcard-url]
-[![Russian Warship Go Fuck Yourself](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/RussianWarship.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
 Contains primitives for marshaling/unmarshaling Unix timestamp/epoch to/from built-in time.Time type in JSON.
 
