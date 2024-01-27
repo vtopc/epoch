@@ -35,11 +35,6 @@ func (m *Milliseconds) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-const (
-	msPerS  = int64(time.Second / time.Millisecond)
-	nsPerMs = int64(time.Millisecond)
-)
-
 func msToTime(ms int64) time.Time {
 	s := ms / msPerS
 	ns := (ms % msPerS) * nsPerMs
