@@ -8,7 +8,9 @@ import (
 )
 
 // FloatMS - integer part of timestamp represents seconds and fractional - milliseconds since
-// the Epoch(Unix time), e.g. 1136239445.999
+// the Epoch(Unix time), e.g.
+//   1136239445.999
+//
 // Inherits built-in time.Time type, thus has all it methods, but has custom serializer and
 // deserializer(converts float timestamp into built-in time.Time and vice versa).
 type FloatMS struct {

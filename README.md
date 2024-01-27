@@ -68,11 +68,18 @@ Same as epoch.Milliseconds, but for strings, e.g.:
   {"timestamp":"1136239445999"}
 ```
 
-## Additional terms of use for users from Russia and Belarus
+## FloatMS
+Integer part of timestamp represents seconds and fractional - milliseconds since the Epoch(Unix time), 
+e.g.:
+```json
+  {"timestamp":1136239445.999}
+```
+
+## Additional terms of use for users from russia and Belarus
 
 By using the code provided in these repositories you agree with the following:
-* Russia has [illegally annexed Crimea in 2014](https://en.wikipedia.org/wiki/Annexation_of_Crimea_by_the_Russian_Federation) and [brought the war in Donbas](https://en.wikipedia.org/wiki/War_in_Donbas) followed by [full-scale invasion of Ukraine in 2022](https://en.wikipedia.org/wiki/2022_Russian_invasion_of_Ukraine).
-* Russia has brought sorrow and devastations to millions of Ukrainians, killed hundreds of innocent people, damaged thousands of buildings, and forced several million people to flee.
+* russia has [illegally annexed Crimea in 2014](https://en.wikipedia.org/wiki/Annexation_of_Crimea_by_the_Russian_Federation) and [brought the war in Donbas](https://en.wikipedia.org/wiki/War_in_Donbas) followed by [full-scale invasion of Ukraine in 2022](https://en.wikipedia.org/wiki/2022_Russian_invasion_of_Ukraine).
+* russia has brought sorrow and devastations to millions of Ukrainians, killed hundreds of innocent people, damaged thousands of buildings, and forced several million people to flee.
 * [Putin khuylo!](https://en.wikipedia.org/wiki/Putin_khuylo!)
 
 Glory to Ukraine! 🇺🇦
