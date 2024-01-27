@@ -21,8 +21,6 @@ type testMillisecondsPointerStruct struct {
 
 const tms = int64(1136239445999)
 
-var tmsTime = time.Unix(1136239445, 999*nsPerMs)
-
 func TestNewMilliseconds(t *testing.T) {
 	const ns = 123 * nsPerMs
 	t.Run("seconds", func(t *testing.T) {
