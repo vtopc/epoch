@@ -26,6 +26,7 @@ func NewFloatMS(t time.Time) FloatMS {
 func (s FloatMS) MarshalJSON() ([]byte, error) {
 	milli := s.Time.UnixMilli()
 	f := float64(milli) / float64(msPerS)
+
 	return json.Marshal(f)
 }
 
