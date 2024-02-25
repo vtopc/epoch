@@ -104,14 +104,6 @@ linters-settings:
     require-specific: true # require nolint directives to be specific about which linter is being skipped
 
 issues:
-  # List of regexps of issue texts to exclude, empty list by default.
-  # But independently from this option we use default exclude patterns,
-  # it can be disabled by `exclude-use-default: false`. To list all
-  # excluded by default patterns execute `golangci-lint run --help`
-#  exclude:
-#    - G505 # sha1
-#    - G401 # sha1
-
   # Maximum issues count per one linter. Set to 0 to disable. Default is 50.
   max-issues-per-linter: 0
 
