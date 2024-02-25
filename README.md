@@ -75,6 +75,12 @@ e.g.:
   {"timestamp":1136239445.999}
 ```
 
+## Installation
+```shell
+go get github.com/vtopc/epoch@latest
+```
+This will update yours go.mod file.
+
 ## Additional terms of use for users from russia and Belarus
 
 By using the code provided in these repositories you agree with the following:
