@@ -20,6 +20,7 @@ func NewStrMilliseconds(t time.Time) StrMilliseconds {
 // MarshalJSON - implements JSON marshaling interface
 func (m StrMilliseconds) MarshalJSON() ([]byte, error) {
 	ms := m.Time.UnixNano() / nsPerMs
+
 	return json.Marshal(strconv.FormatInt(ms, 10))
 }
 

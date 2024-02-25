@@ -8,5 +8,13 @@ test: ## Run unit tests.
 
 .PHONY: deps
 deps: ## Install dependencies.
-	GO111MODULE=on go mod tidy
-	GO111MODULE=on go mod download
+	go mod download
+
+# linter:
+GOLINT = $(GOPATH)/bin/golangci-lint
+$(GOLINT):
+	curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(GOPATH)/bin v1.56.2
+
+.PHONY: lint
+lint: $(GOLINT) ## Run linters.
+	$(GOLINT) run
