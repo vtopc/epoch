@@ -49,7 +49,7 @@ jobs:
           cache: true # caching and restoring go modules and build outputs
 
       - name: Check that 'go mod tidy' was called before commit
-        run: go mod tidy && git diff --exit-code
+        run: go version && go mod tidy && git diff --exit-code
 
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v4
